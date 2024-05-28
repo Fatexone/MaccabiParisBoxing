@@ -1,130 +1,144 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>AlphaBoxe</title>
- <link rel="stylesheet" href="index.css">
- <link rel="icon" href="img/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaBoxe</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="img/favicon.png">
 </head>
 <body>
- <div class="container">
-
-
-
-  <div class="control-group" id="programSelectorContainer">
-    <label for="programSelect"></label>
-    <select id="programSelect">
-      <option value="">Select a Program...</option>
-      <option value="Coaching3">Plank</option>
-      <option value="Coaching4">Push-ups</option>
-    </select>
-  </div>
-
-  <button id="returnButtonCoaching4" style="display:none;">Return</button>
-
-
-  <div id="videoContainer" class="video-container" style="display:none;">
-    <video id="welcomeVideo" width="100%" controls>
-      <source src="audio/accueil.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
-
-    <button id="nextButton" class="blink" style="display:none;">Next</button> 
-    <div id="videoDescription" class="video-description" aria-live="polite" style="display:none;"></div>
-  </div>
-
-  <div id="videoContainer2" class="video-container" style="display:none;">
-    <video id="welcomeVideo2" width="100%" controls>
-      <source src="audio/accueil.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>    
-
-
-    <button id="nextButton2" class="blink" style="display:none;">Next</button> 
-    <div id="videoDescription2" class="video-description" aria-live="polite" style="display:none;"></div>
-  </div>
-
-  <div id="audioDescriptionCoaching3" class="audio-description" style="display:none;">Description audio ici.</div>
-
-  <div id="digitalDisplay" class="digital-display" style="display:none;">00:00</div>
-
-  <div id="timeSelector" style="display: none;">
-    <select id="timeDurationSelector">
-        <option value="">-- Sélectionnez la durée --</option>
-        <option value="5">5 minutes</option>
-        <option value="10">10 minutes</option>
-    </select>
-    <button id="startTimerButton" style="display: none;">Démarrer</button>
-</div>
-
-
-  <button id="startTimerButton" class="action-button" style="display: none;">Start Timer</button>
-  <button id="stopButton" class="action-button" style="display: none;">Pause/Resume</button>
-
-    <div class="image-container">
-    <img id="tapisImage2" src="audio/sebastien.jpg" style="display: none;" />
-    <button id="retourneMenue" class="return-button" style="display:none;">Return</button>
-  </div>
-
-  <div id="pompesSelectorContainer" style="display:none;">
-    <label for="pompesSelector"></label>
-    <select id="pompesSelector">
-      <option value="">Select the number of push-ups you wish to perform</option>
-      <option value="3">3</option>
-      <option value="8">8</option>
-      <option value="13">13</option>
-      <option value="20">20</option>
-      <option value="27">27</option>
-      <option value="34">34</option>
-      <option value="43">43</option>
-      <option value="52">52</option>
-      <option value="61">61</option>
-      <option value="81">81</option>
-      <option value="92">92</option>
-      <option value="103">103</option>
-      <option value="114">114</option>
-      <option value="125">125</option>
-      <option value="138">138</option>
-      <option value="151">151</option>
-      <option value="164">164</option>
-      <option value="177">177</option>
-      <option value="190">190</option>
-      <option value="203">203</option>
-      <option value="218">218</option>
-      <option value="233">233</option>
-      <option value="248">248</option>
-      <option value="263">263</option>
-      <option value="278">278</option>
-      <option value="295">295</option>
-      <option value="312">312</option>
-      <option value="329">329</option>
-      <option value="346">346</option>
-      <option value="365">365</option>
-      <option value="384">384</option>
-      <option value="403">403</option>
-      <option value="424">424</option>
-      <option value="445">445</option>
-      <option value="468">468</option>
-    </select>
-
-    <button id="startButton" class="action-button" style="display: none;">Start</button>
-    <button id="nextAudioButton" class="action-button" style="display:none;">Listen to Next</button>
-
-    <div class="image-container">
-    <img id="tapisImage" src="audio/sebastien.jpg" style="display: block;" />
-    <button id="returnButton" class="return-button" style="display:none;">Return</button>  
-  </div>
-
-  <div id="loadingIndicator" class="loading-indicator" style="display: none;">loading...</div>
-  <div id="audioDescription" aria-live="polite" style="display:none;"></div>
-  <div id="pompesInstruction" class="audio-description" style="display:none;">Select the number of push-ups you wish to perform :</div>
-
-  <script src="js/index.js"></script>
-  <script src="cordova.js"></script>
-
-
- </div>
+    <div class="full-height centered">
+        <div class="container centered">
+            <!-- Groupe de contrôle pour la sélection de programme -->
+            <div class="control-group centered" id="programSelectorContainer">
+                <select id="programSelect" class="clignotant centered">
+                    <option value="">Select Program...</option>
+                    <option value="Coaching3">Planki</option>
+                    <option value="Coaching4">Push-ups</option>
+                </select>
+            </div>
+            <!-- Conteneur de l'image -->
+            <div class="image-container centered">
+                <img id="tapisImage" src="audio/KARLITO.jpg" alt="Tapis d'exercice">
+            </div>
+            <!-- Conteneur de vidéos -->
+            <div id="videoContainer" class="video-container centered" style="display:none;">
+                <video id="welcomeVideo" controls class="centered">
+                    <source src="audio/accueil.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div id="nextButtonContainer1" class="button-container centered">
+                    <button id="nextButton" class="blink clignotant centered" style="display:none;">Next Push</button> 
+                </div>
+                <div id="videoDescription" class="video-description centered" aria-live="polite" style="display:none;"></div>
+            </div>
+            <div id="videoContainer2" class="video-container centered" style="display:none;">
+                <video id="welcomeVideo2" controls class="centered">
+                    <source src="audio/accueil.mp4" type="video/mp4">
+                </video>
+                <div id="nextButtonContainer2" class="button-container centered">
+                    <button id="nextButton2" class="blink clignotant centered" style="display:none;">Next Plank</button> 
+                </div>
+                <div id="logoContainer" class="centered">
+                    <img src="audio/logoDakh.jpg" alt="Logo Dakh" id="animatedLogo" class="centered">
+                </div>
+                <div id="videoDescription2" class="video-description centered" aria-live="polite" style="display:none;"></div>
+            </div>
+            <!-- Description audio -->
+            <div id="audioDescriptionCoaching3" class="audio-description centered" style="display:none;">Description audio ici.</div>
+            <div class="container centered">
+                <!-- Affichage digital -->
+                <div id="digitalDisplay" class="digital-display centered" style="display:none;">00:00</div>
+                <!-- Autres contenus -->
+            </div>
+            <div id="timeSelector" class="selector-container centered" style="display:none;">
+                <select id="timeDurationSelector" class="clignotant centered">
+                    <option value="">-- Select Time --</option>
+                    <option value="1">1 minute</option>
+                    <option value="2">2 minutes</option>
+                    <option value="3">3 minutes</option>
+                    <option value="4">4 minutes</option>
+                    <option value="5">5 minutes</option>
+                    <option value="6">6 minutes</option>
+                    <option value="7">7 minutes</option>
+                    <option value="8">8 minutes</option>
+                    <option value="9">9 minutes</option>
+                    <option value="10">10 minutes</option>
+                    <option value="11">11 minutes</option>
+                    <option value="12">12 minutes</option>
+                    <option value="13">13 minutes</option>
+                    <option value="14">14 minutes</option>
+                    <option value="15">15 minutes</option>
+                    <option value="16">16 minutes</option>
+                    <option value="17">17 minutes</option>
+                    <option value="18">18 minutes</option>
+                    <option value="19">19 minutes</option>
+                    <option value="20">20 minutes</option>
+                </select>
+            </div>
+            <button id="startTimerButton" class="clignotant centered" style="display: none;">Start</button>
+            <!-- Bouton de pause -->
+            <button id="stopButton" class="action-button clignotant centered" style="display: none; background-color: red;">Pause</button>
+            <!-- Bouton de retour -->
+            <div class="image-container centered">
+                <button id="retourneMenue" class="return-button centered" style="display:none;">Return</button>
+            </div>
+            <!-- Sélecteur de pompes -->
+            <div id="pompesSelectorContainer" class="selector-container centered" style="display:none;">
+                <select id="pompesSelector" class="clignotant centered">
+                    <option value="">Select the number of push-ups</option>
+                    <option value="3">3</option>
+                    <option value="8">8</option>
+                    <option value="13">13</option>
+                    <option value="20">20</option>
+                    <option value="27">27</option>
+                    <option value="34">34</option>
+                    <option value="43">43</option>
+                    <option value="52">52</option>
+                    <option value="61">61</option>
+                    <option value="81">81</option>
+                    <option value="92">92</option>
+                    <option value="103">103</option>
+                    <option value="114">114</option>
+                    <option value="125">125</option>
+                    <option value="138">138</option>
+                    <option value="151">151</option>
+                    <option value="164">164</option>
+                    <option value="177">177</option>
+                    <option value="190">190</option>
+                    <option value="203">203</option>
+                    <option value="218">218</option>
+                    <option value="233">233</option>
+                    <option value="248">248</option>
+                    <option value="263">263</option>
+                    <option value="278">278</option>
+                    <option value="295">295</option>
+                    <option value="312">312</option>
+                    <option value="329">329</option>
+                    <option value="346">346</option>
+                    <option value="365">365</option>
+                    <option value="384">384</option>
+                    <option value="403">403</option>
+                    <option value="424">424</option>
+                    <option value="445">445</option>
+                    <option value="468">468</option>
+                </select>
+            </div>
+            <button id="startButton" class="action-button clignotant centered" style="display: none;">Start</button>
+            <button id="nextAudioButton" class="action-button clignotant centered" style="display:none;">Listen to Next</button>
+            <div class="image-container centered">
+                <button id="returnButton" class="return-button clignotant centered" style="display:none;">ReturnButton</button>  
+                <div id="audioDescription" aria-live="polite" class="centered" style="display:none;"></div>
+                <div id="pompesInstruction" class="audio-description centered" style="display:none;">Select the number of push-ups:</div>
+            </div>
+            <div class="image-container centered">
+                <button id="returnButtonCoaching4" class="return-button centered" style="display:none;">Return</button>  
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="cordova.js"></script>
+    <script src="cordova_plugins.js"></script>
 </body>
 </html>

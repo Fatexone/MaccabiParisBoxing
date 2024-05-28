@@ -1,15 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
-
 body, html {
     height: 100%;
     margin: 0;
-    background: url('audio/KARLITO.jpg') no-repeat center center fixed;
-    background-size: contain;
-    color: #ffffff;
+    background-color: #000000;
+    color: #b16c6c;
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.full-height {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensure vertical alignment */
 }
 
 .container {
@@ -17,12 +29,12 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-    padding: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
-.control-group, .video-container, .time-selector, .image-container {
+.control-group, .video-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,8 +44,21 @@ body, html {
     margin-top: 20px;
 }
 
+
+.selector-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensure vertical alignment */
+    width: 100%; /* Adjust width as needed */
+    margin: 10px 0; /* Add some margin for spacing */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+
 select, input[type="number"], button {
-    width: 80%;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 300px;
     padding: 12px;
     margin: 10px 0;
     border-radius: 8px;
@@ -45,12 +70,19 @@ select, input[type="number"], button {
     text-align: center;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    display: block;
-    margin: 20px auto;
+    text-align-last: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
-select:focus, input[type="number"]:focus, button:focus {
-    outline: none;
+
+
+select option {
+    text-align: center;
+    background: #ffffff;
+    color: #000000;
 }
 
 .video-description, .audio-description {
@@ -59,29 +91,29 @@ select:focus, input[type="number"]:focus, button:focus {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    width: 90%;
+    width: 60%;
     font-size: 1rem;
     margin: 20px auto;
 }
 
 @media (max-width: 768px) {
     select, input[type="number"], button, .video-description, .audio-description {
-        width: 95%;
+        width: 80%;
         font-size: 0.9rem;
     }
 }
 
-.video-container, video, .blink, .video-description, .audio-description {
+.video-container, video, .video-description, .audio-description {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 60%;
     max-width: 600px;
     margin: 0 auto;
 }
 
-video, .blink, .video-description, .audio-description {
-    width: 100%;
+video, .video-description, .audio-description {
+    width: 80%;
     margin: 20px auto;
 }
 
@@ -103,15 +135,6 @@ video, .blink, .video-description, .audio-description {
         font-size: 2rem;
         padding: 15px 30px;
     }
-}
-
-@keyframes blink-animation {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-.blink {
-    animation: blink-animation 1s linear infinite;
 }
 
 .action-button, .return-button {
@@ -141,25 +164,6 @@ video, .blink, .video-description, .audio-description {
     transform: scale(0.95);
 }
 
-.loading-indicator {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-@keyframes flashYellow {
-    0%, 100% { background-color: transparent; }
-    50% { background-color: yellow; }
-}
-
 .image-container img {
     max-width: 100%;
     height: auto;
@@ -181,68 +185,71 @@ video, .blink, .video-description, .audio-description {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    width: 90%;
+    width: 50%;
     font-size: 1rem;
     margin: 20px auto;
 }
 
 @media (max-width: 768px) {
     .text-description {
-        width: 95%;
+        width: 100%;
         font-size: 0.9rem;
     }
 }
 
-@keyframes flashOrangeLight {
-    0%, 100% { background-color: transparent; }
-    50% { background-color: #FFA500; }
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
 }
 
-.flash-orange-inner {
-    animation: flashOrangeLight 1s linear infinite;
+.return-button {
+    width: auto;
+    margin: 5px 0;
 }
 
-#programSelect,
-#nextButton,
-#nextButton2,
-#timeSelector,
-#startTimerButton,
-#pompesSelectorContainer,
-
-#pompesSelectorContainer {
-    animation: flashOrangeLight 1s linear infinite;
+.audio-description {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
 }
 
-#timeDurationSelector > .flash-orange-inner {
-    animation: flashOrangeLight 1s linear infinite;
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .return-button, .audio-description {
+        width: 100%;
+    }
 }
 
-.homepage-title {
-    color: red;
+#programSelect, #timeDurationSelector, #pompesSelector {
+    background-color: #652020;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 300px;
+    margin: 10px auto; /* Center horizontally */
 }
 
-.additional-image {
-    position: absolute;
-    max-width: 200px;
-    opacity: 0.5;
+
+#programSelect:hover, #timeDurationSelector:hover, #pompesSelector:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
 }
 
-.image-top-left {
-    top: 10px;
-    left: 10px;
-}
-
-.image-top-right {
-    top: 10px;
-    right: 10px;
-}
-
-.image-bottom-left {
-    bottom: 10px;
-    left: 10px;
-}
-
-.image-bottom-right {
-    bottom: 10px;
-    right: 10px;
+#programSelect:active, #timeDurationSelector:active, #pompesSelector:active {
+    transform: scale(0.95);
 }
